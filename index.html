@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upper/Lower Split</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <style>
+        
+        * {
+            color: #FFFFFF;
+        }
+        
+        body {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.80),rgba(40, 40, 40, 0.80)),url('images/background.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;   
+        }
+        
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="upper.html">Upper</a></li>
+            <li><a href="lower.html">Lower</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+        </ul>
+    </nav>
+    <h1>Upper/ Lower Body Workout</h1>
+    <div class="choice">
+        <h2 id="choiceText">Choose your workout</h2>
+        <div id="workouts">
+            <form style="display: inline" action="upper.html" method="get">
+                <button type="submit" id="upper">Upper Body</button>
+            </form>
+            <form style="display: inline" action="lower.html" method="get">
+                <button type="submit" id="lower">Lower Body</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

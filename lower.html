@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lower Body Workout</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="upper.html">Upper</a></li>
+            <li><a href="lower.html">Lower</a></li>
+            <li><a href="stats.html">Statistics</a></li>
+        </ul>
+    </nav>
+    <h1>Lower Body Workout</h1>
+    <main>
+        <nav class="exercises">
+            <ul class="tabs">
+                <li class="tab is-active">
+                    <a data-switcher data-tab="1">Barbell Squat</a>
+                </li>
+                <li class="tab">
+                    <a data-switcher data-tab="2">Romanian Deadlift</a>
+                </li>
+                <li class="tab">
+                    <a data-switcher data-tab="3">Split-Squat</a>
+                </li>
+                <li class="tab">
+                    <a data-switcher data-tab="4">Lying Leg Curl</a>
+                </li>
+                <li class="tab">
+                    <a data-switcher data-tab="5">Standing Calf-Raise</a>
+                </li>
+                <li class="tab">
+                    <a data-switcher data-tab="6">Seated Calf-Raise</a>
+                </li>
+            </ul>
+        </nav>
+    </main>
+    <section class="upperWorkouts">
+        <div class="workout is-active" data-page="1">
+            <h2>Barbell Squat</h2>
+            <div class="container">
+                <div class="display">
+                    <img src="images/squat.png" alt="squat" height="250px">
+                    <h3>How to:</h3>
+                    <p>Grip should be close shoulders. Shoulder blades should be squeezed back and down. All four corners of the foot should be firmly planted. Start by pushing hips back and lowering glutes until your quads are parallel with the ground. Push back up through the heels, keeping the back straight, chest up, and knees straight. Maintain firm core throughout. Aim for 6-8 reps</p>
+                </div>
+                <div class="sets">
+                    <div class="set-reps">
+                        <div class="set-number">Set 1</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="1" onsubmit="saveData(event, 1)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="6-8"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 2</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="2" onsubmit="saveData(event, 2)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="6-8"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 3</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="3" onsubmit="saveData(event, 3)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="6-8"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 4</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="4" onsubmit="saveData(event, 4)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="6-8"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 5</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="5" onsubmit="saveData(event, 5)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="6-8"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="workout" data-page="2">
+            <h2>Romanian Deadlift</h2>
+            <div class="container">
+                <div class="display">
+                    <img src="images/deadlift.png" alt="deadlift" height="250px">
+                    <h3>How to:</h3>
+                    <p>Grip the bar slightly more than shoulder-width apart. Keep a tight core and push hips back while keeping a slight bend in the knees. Lower the bar to just under the knees. Push the hips forward by squeezing the glutes to come back up. Repeat for 8-10 reps.</p>
+                </div>
+                <div class="sets">
+                    <div class="set-reps">
+                        <div class="set-number">Set 1</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="6" onsubmit="saveData(event, 6)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="8-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 2</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="7" onsubmit="saveData(event, 7)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="8-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 3</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="8" onsubmit="saveData(event, 8)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="8-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 4</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="9" onsubmit="saveData(event, 9)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="8-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="workout" data-page="3">
+            <h2>Bulgarian Split-Squat</h2>
+            <div class="container">
+                <div class="display">
+                    <img src="images/splitSquat.jpg" alt="split squat" height="250px">
+                    <h3>How to:</h3>
+                    <p>With one leg planted on the bench behind you, lower yourself down with control using the forward leg for balance. Push back up using the forward leg. Aim for 6-10 reps per leg</p>
+                </div>
+                <div class="sets">
+                    <div class="set-reps">
+                        <div class="set-number">Set 1</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="10" onsubmit="saveData(event, 10)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="6-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 2</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="11" onsubmit="saveData(event, 11)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="6-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 3</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="12" onsubmit="saveData(event, 12)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="6-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 4</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="13" onsubmit="saveData(event, 13)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="6-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="workout" data-page="4">
+            <h2>Lying Leg-Curl</h2>
+            <div class="container">
+                <div class="display">
+                    <img src="images/legCurl.png" alt="leg curl" height="250px">
+                    <h3>How to:</h3>
+                    <p>Pull your heels towards your glutes by squeezing your hamstrings and bending at the knee. Pause at the top and slowly lower down with control. Aim for 8-10 reps</p>
+                </div>
+                <div class="sets">
+                    <div class="set-reps">
+                        <div class="set-number">Set 1</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="14" onsubmit="saveData(event, 14)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="8-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 2</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="15" onsubmit="saveData(event, 15)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="8-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 3</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="16" onsubmit="saveData(event, 16)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="8-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 4</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="17" onsubmit="saveData(event, 17)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="8-10"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="workout" data-page="5">
+            <h2>Standing Calf-Raise</h2>
+            <div class="container">
+                <div class="display">
+                    <img src="images/standingCalf.gif" alt="standing calf raise" height="250px">
+                    <h3>How to:</h3>
+                    <p>Stand on an elevated platform with your toes planted and your heels off the platform. Push your heels up as far as you can and pause at the top. Slowly lower down. Repeat for 10-15 reps.</p>
+                </div>
+                <div class="sets">
+                    <div class="set-reps">
+                        <div class="set-number">Set 1</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="18" onsubmit="saveData(event, 18)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="10-15"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 2</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="19" onsubmit="saveData(event, 19)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="10-15"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 3</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="20" onsubmit="saveData(event, 20)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="10-15"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 4</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="21" onsubmit="saveData(event, 21)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="10-15"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="workout" data-page="6">
+            <h2>Seated Calf-Raise</h2>
+            <div class="container">
+                <div class="display">
+                    <img src="images/seatedCalf.gif" alt="seated calf-raise" height="250px">
+                    <h3>How to:</h3>
+                    <p>Push the knee pad up by raising your heels while keeping the toes planted. Pause at the top and slowly lower down. Aim for 10-15 reps.</p>
+                </div>
+                <div class="sets">
+                    <div class="set-reps">
+                        <div class="set-number">Set 1</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="22" onsubmit="saveData(event, 22)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="10-15"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 2</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="2" onsubmit="saveData(event, 23)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="10-15"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 3</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="24" onsubmit="saveData(event, 24)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="10-15"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="set-reps">
+                        <div class="set-number">Set 4</div>
+                        <div class="reps-weights">
+                            <form method="get" data-set="25" onsubmit="saveData(event, 25)">
+                                <div>
+                                    <label>Reps</label>
+                                    <input type="number" name="reps" placeholder="10-15"
+                                    class="repsData">
+                                    <p class="error"></p>
+                                    <label>Weight (kg)</label>
+                                    <input type="number" name="weight" class="weightData">
+                                    <button type="submit" class="submit">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
