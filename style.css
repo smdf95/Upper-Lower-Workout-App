@@ -1,8 +1,12 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
-    color: #000000;
+    color: #FFFFFF;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+body {
+    background-color: #222222;
 }
 
 nav ul{
@@ -25,7 +29,7 @@ nav ul li{
 nav ul li a{
     text-decoration: none;
     text-transform: uppercase;
-
+    
 }
 
 nav .tabs {
@@ -43,7 +47,7 @@ nav .tabs .tab a[data-switcher] {
     padding: 15px 30px;
     text-decoration: none;
     color: #FFFFFF;
-    background-image: linear-gradient(#3F00FF, #1E90FF);
+    background-image: linear-gradient(#FF8C00, #FF6600);
     border-radius: 5px;
     cursor: pointer;
     font-size: smaller;
@@ -51,11 +55,11 @@ nav .tabs .tab a[data-switcher] {
 
 nav .tabs .tab:hover a[data-switcher] {
 
-    background-image: linear-gradient(#FF8C00, #FF4400);
+    background-image: linear-gradient(#DD0000, #FF2222);
 }
 
 nav .tabs .tab.is-active a[data-switcher] {
-    background-image: linear-gradient(#FF8C00, #FF4400);
+    background-image: linear-gradient(#DD0000, #FF2222);
 }
 
 h1, h2 {
@@ -146,7 +150,9 @@ button {
     margin: 10px;
 }
 
-
+input {
+    color: #000000;
+}
 
 input::placeholder {
     color: lightblue;

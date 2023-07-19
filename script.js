@@ -1,5 +1,89 @@
+function displayStatistics() {
+    var exerciseDivs = [
+        { exerciseName: 'Incline Dumbbell Bench Press', divId: 'InclineDumbbellBenchPress' },
+        { exerciseName: 'Barbell Row', divId: 'BarbellRow' },
+        { exerciseName: 'Overhead Press', divId: 'OverheadPress' },
+        { exerciseName: 'Lat Pulldown', divId: 'LatPulldown' },
+        { exerciseName: 'Cable Fly', divId: 'CableFly' },
+        { exerciseName: 'Lateral Dumbbell Raise', divId: 'LateralDumbbellRaise' },
+        { exerciseName: 'Seated Incline Bicep Curl', divId: 'SeatedInclineBicepCurl' },
+        { exerciseName: 'Cable Overhead Tricep Extension', divId: 'CableOverheadTricepExtension' }
+    ];
 
-//Function for switching workout tabs//
+    exerciseDivs.sort((a, b) => a.exerciseName.localeCompare(b.exerciseName));
+
+        var setsByDateAndExercise = {};
+
+        for (var i = 0; i < exerciseDivs.length; i++) {
+            var exerciseDiv = document.getElementById(exerciseDivs[i].divId);
+            if (!exerciseDiv) {
+                console.error(`Element with ID ${exerciseDivs[i].divId} not found.`);
+                continue;
+            }
+
+            var exerciseName = exerciseDivs[i].exerciseName;
+            var spacelessExerciseName = exerciseName.split(" ").join("");
+
+            for (var j = 0; j < localStorage.length; j++) {
+                var key = localStorage.key(j);
+                var value = localStorage.getItem(key);
+
+                if (key.toLowerCase().includes(spacelessExerciseName.toLowerCase())) {
+                    var date = key.slice(0, 10);
+                    var setNumberMatch = key.match(/Set: (\d+)/);
+                    var setNumber = setNumberMatch ? parseInt(setNumberMatch[1]) : null;
+
+                    if (!setsByDateAndExercise[date]) {
+                        setsByDateAndExercise[date] = {};
+                    }
+
+                    if (!setsByDateAndExercise[date][exerciseName]) {
+                        setsByDateAndExercise[date][exerciseName] = {};
+                    }
+
+                    setsByDateAndExercise[date][exerciseName][setNumber] = value;
+                }
+            }
+
+            var statisticsForExercise = [];
+
+            Object.keys(setsByDateAndExercise).forEach(function (date) {
+                var setsForExerciseAndDate = setsByDateAndExercise[date][exerciseName];
+                if (setsForExerciseAndDate) {
+                    var dateOfExercise = document.createElement("div");
+                    dateOfExercise.innerHTML = `<h3>${date}:</h3>`;
+
+                    var sortedSets = Object.keys(setsForExerciseAndDate).map(Number).sort((a, b) => a - b);
+                    sortedSets.forEach(function (setNumber) {
+                        var exerciseStats = document.createElement("p");
+                        exerciseStats.textContent = `Set ${setNumber}: ${setsForExerciseAndDate[setNumber]}`;
+                        dateOfExercise.appendChild(exerciseStats);
+                    });
+
+                    statisticsForExercise.push(dateOfExercise);
+                }
+            });
+
+            exerciseDiv.innerHTML = '';
+            statisticsForExercise.forEach(function (stat) {
+                exerciseDiv.appendChild(stat);
+            });
+        }
+    }
+
+let activePage = 0;
+
+function showWorkoutForms() {
+    const currentPage = document.querySelector('.upperWorkouts .workout.is-active');
+    if (currentPage) {
+        currentPage.classList.remove('is-active');
+    }
+
+    const nextPage = document.querySelector(`.upperWorkouts .workout[data-page="${activePage}"]`);
+    if (nextPage) {
+        nextPage.classList.add('is-active');
+    }
+}
 
 window.onload = () => {
     const tabSwitchers = document.querySelectorAll('[data-switcher]');
@@ -15,46 +99,60 @@ window.onload = () => {
             switchPage(pageId);
         });
     }
+
 }
 
 function switchPage(pageId) {
-    const currentPage = document.querySelector('.upperWorkouts .workout.is-active');
-    currentPage.classList.remove('is-active');
-
-    const nextPage = document.querySelector(`.upperWorkouts .workout[data-page="${pageId}"]`);
-    nextPage.classList.add('is-active');
+    activePage = pageId;
+    showWorkoutForms();
 }
 
 
-function showData(setNumber) {
-    var form = document.querySelector(`form[data-set="${setNumber}"]`);
-    var repsInput = form.querySelector(".repsData");
-    var weightInput = form.querySelector(".weightData");
+function showData(exerciseName, setNumber) {
+    var exerciseDiv = document.getElementById(exerciseName);
+    var form = exerciseDiv.querySelector(`form[data-set="${setNumber}"]`);
+    var repsInput = form.querySelector('.repsData');
+    var weightInput = form.querySelector('.weightData');
+    var errorElement = form.querySelector('.error');
 
     var reps = repsInput.value;
     var weight = weightInput.value;
 
     if (reps > 0) {
-        var stats = document.createElement("div");
-        stats.textContent = `Reps: ${reps}. Weight: ${weight}kg.`;
+        var stats = `Reps: ${reps}. Weight: ${weight}kg.`;
 
-        form.replaceWith(stats);
+        var currentDate = new Date();
+        var formattedDate = currentDate.toISOString().slice(0, 10);
+
+        var exerciseSets = [];
+        for (var j = 0; j < localStorage.length; j++) {
+            var key = localStorage.key(j);
+            if (key.toLowerCase().includes(`${formattedDate} ${exerciseName.toLowerCase()}`)) {
+                var setNumberMatch = key.match(/Set: (\d+)/);
+                var currentSetNumber = setNumberMatch ? parseInt(setNumberMatch[1]) : null;
+                if (currentSetNumber) {
+                    exerciseSets.push(currentSetNumber);
+                }
+            }
+        }
+
+        var nextSetNumber = exerciseSets.length > 0 ? Math.max(...exerciseSets) + 1 : 1;
+
+        var key = `${formattedDate} ${exerciseName} Set: ${nextSetNumber}`;
+        localStorage.setItem(key, stats);
+
+        var statsElement = document.createElement('div');
+        statsElement.textContent = stats;
+        form.replaceWith(statsElement);
     } else {
-        var errorElement = form.querySelector(".error");
         if (errorElement) {
-            errorElement.textContent = "Error: Please enter a valid number of reps.";
+            errorElement.textContent = 'Error: Please enter a valid number of reps.';
         }
     }
-
 }
 
-function saveData(event, setNumber) {
+
+function saveData(event, exerciseName, setNumber) {
     event.preventDefault();
-    showData(setNumber);
-
+    showData(exerciseName, setNumber);
 }
-
-
-
-
-
