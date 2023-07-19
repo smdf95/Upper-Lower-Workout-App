@@ -17,29 +17,79 @@
         </ul>
     </nav>
     <h1>Statistics</h1>
-    <div>
-        <h3>Upper Body Workouts</h3>
-            <h4>Incline Dumbbell Bench Press</h4>
-                <div id="InclineDumbbellBenchPress"></div>
-            <h4>Barbell Row</h4>
-                <div id="BarbellRow"></div>
-            <h4>Overhead Press</h4>
-                <div id="OverheadPress"></div>
-            <h4>Lat Pulldown</h4>
-                <div id="LatPulldown"></div>
-            <h4>Cable Fly</h4>
-                <div id="CableFly"></div>
-            <h4>Lateral Dumbbell Raise</h4>
-                <div id="LateralDumbbellRaise"></div>
-            <h4>Seated Incline Bicep Curl</h4>
-                <div id="SeatedInclineBicepCurl"></div>
-            <h4>Cable Overhead Tricep Extension</h4>
-                <div id="CableOverheadTricepExtension"></div>
+    <nav class="exercises">
+        <ul class="tabs">
+            <li class="tab is-active">
+                <a data-switcher data-tab="1">Upper</a>
+            </li>
+            <li class="tab">
+                <a data-switcher data-tab="2">Lower</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="exercises">
+        <div class="workout is-active" data-page="1">
+            <h2>Upper Body Workouts</h2>
+            <div class="statsTab">
+                <button type="button" class="collapsible">Incline Dumbbell Bench Press</button>
+                    <div id="InclineDumbbellBenchPress"></div>
+                <button type="button" class="collapsible">Barbell Row</button>
+                    <div id="BarbellRow"></div>
+                <button type="button" class="collapsible">Overhead Press</button>
+                    <div id="OverheadPress"></div>
+                <button type="button" class="collapsible">Lat Pulldown</button>
+                    <div id="LatPulldown"></div>
+                <button type="button" class="collapsible">Cable Fly</button>
+                    <div id="CableFly"></div>
+                <button type="button" class="collapsible">Lateral Dumbbell Raise</button>
+                    <div id="LateralDumbbellRaise"></div>
+                <button type="button" class="collapsible">Seated Incline Bicep Curl</button>
+                    <div id="SeatedInclineBicepCurl"></div>
+                <button type="button" class="collapsible">Cable Overhead Tricep Extension</button>
+                    <div id="CableOverheadTricepExtension"></div>
+            </div>
+        </div>
+
+        <div class="workout" data-page="2">
+        <h2>Lower Body Workouts</h2>
+        <div class="statsTab">
+            <button type="button" class="collapsible">Barbell Squat</button>
+                <div id="BarbellSquat"></div>
+            <button type="button" class="collapsible">Romanian Deadlift</button>
+                <div id="RomanianDeadlift"></div>
+            <button type="button" class="collapsible">Bulgarian Split-Squat</button>
+                <div id="BulgarianSplit-Squat"></div>
+            <button type="button" class="collapsible">Lying Leg Curls</button>
+                <div id="LyingLeg-Curl"></div>
+            <button type="button" class="collapsible">Standing Calf-Raise</button>
+                <div id="StandingCalf-Raise"></div>
+            <button type="button" class="collapsible">Seated Calf-Raise</button>
+                <div id="SeatedCalf-Raise"></div>
+        </div>
     </div>
+</div>
+
+
     <script>
         window.onload = function() {
             displayStatistics();
         };
+        
+        
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+            content.style.display = "none";
+            } else {
+            content.style.display = "block";
+            }
+        });
+        }
     </script>
 </body>
 </html>

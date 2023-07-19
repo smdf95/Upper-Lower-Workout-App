@@ -7,7 +7,13 @@ function displayStatistics() {
         { exerciseName: 'Cable Fly', divId: 'CableFly' },
         { exerciseName: 'Lateral Dumbbell Raise', divId: 'LateralDumbbellRaise' },
         { exerciseName: 'Seated Incline Bicep Curl', divId: 'SeatedInclineBicepCurl' },
-        { exerciseName: 'Cable Overhead Tricep Extension', divId: 'CableOverheadTricepExtension' }
+        { exerciseName: 'Cable Overhead Tricep Extension', divId: 'CableOverheadTricepExtension' },
+        { exerciseName: 'Barbell Squat', divId: 'BarbellSquat'},
+        { exerciseName: 'Romanian Deadlift', divId: 'RomanianDeadlift'},
+        { exerciseName: 'Bulgarian Split-Squat', divId: 'BulgarianSplit-Squat'},
+        { exerciseName: 'Lying Leg-Curl', divId: 'LyingLeg-Curl'},
+        { exerciseName: 'Standing Calf-Raise', divId: 'StandingCalf-Raise'},
+        { exerciseName: 'Seated Calf-Raise', divId: 'SeatedCalf-Raise'}
     ];
 
     exerciseDivs.sort((a, b) => a.exerciseName.localeCompare(b.exerciseName));
@@ -51,12 +57,12 @@ function displayStatistics() {
                 var setsForExerciseAndDate = setsByDateAndExercise[date][exerciseName];
                 if (setsForExerciseAndDate) {
                     var dateOfExercise = document.createElement("div");
-                    dateOfExercise.innerHTML = `<h3>${date}:</h3>`;
+                    dateOfExercise.innerHTML = `<h2>${date}:</h2>`;
 
                     var sortedSets = Object.keys(setsForExerciseAndDate).map(Number).sort((a, b) => a - b);
                     sortedSets.forEach(function (setNumber) {
                         var exerciseStats = document.createElement("p");
-                        exerciseStats.textContent = `Set ${setNumber}: ${setsForExerciseAndDate[setNumber]}`;
+                        exerciseStats.innerHTML = `<strong>Set ${setNumber}:</strong> ${setsForExerciseAndDate[setNumber]}`;
                         dateOfExercise.appendChild(exerciseStats);
                     });
 
@@ -71,21 +77,23 @@ function displayStatistics() {
         }
     }
 
-let activePage = 0;
+let activePage = 1;
 
 function showWorkoutForms() {
-    const currentPage = document.querySelector('.upperWorkouts .workout.is-active');
+    const currentPage = document.querySelector('.workout.is-active');
     if (currentPage) {
         currentPage.classList.remove('is-active');
     }
 
-    const nextPage = document.querySelector(`.upperWorkouts .workout[data-page="${activePage}"]`);
+    const nextPage = document.querySelector(`.workout[data-page="${activePage}"]`);
     if (nextPage) {
         nextPage.classList.add('is-active');
     }
 }
 
-window.onload = () => {
+
+
+window.addEventListener('DOMContentLoaded', () => {
     const tabSwitchers = document.querySelectorAll('[data-switcher]');
 
     for (let i = 0; i < tabSwitchers.length; i++) {
@@ -100,7 +108,7 @@ window.onload = () => {
         });
     }
 
-}
+});
 
 function switchPage(pageId) {
     activePage = pageId;
@@ -155,4 +163,20 @@ function showData(exerciseName, setNumber) {
 function saveData(event, exerciseName, setNumber) {
     event.preventDefault();
     showData(exerciseName, setNumber);
+}
+
+
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
 }
