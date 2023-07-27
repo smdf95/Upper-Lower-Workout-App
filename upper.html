@@ -5,20 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upper Body Workout</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="script.js" defer></script>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="upper.html">Upper</a></li>
-            <li><a href="lower.html">Lower</a></li>
-            <li><a href="stats.html">Statistics</a></li>
-        </ul>
-    </nav>
-    <h1>Upper Body Workout</h1>
-    <main>
-        <nav class="exercises">
+<body class="wrapper">
+    <header>
+        <nav>
+            <div class="openMenu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+                <div class="links">
+                <div class="closeMenu">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="upper.html">Upper</a></li>
+                    <li><a href="lower.html">Lower</a></li>
+                    <li><a href="stats.html">Statistics</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1>Upper Body Workout</h1>
+    </header>
+    <aside>
+        <nav class="exercises scroll">
             <ul class="tabs">
                 <li class="tab is-active">
                     <a data-switcher data-tab="1">Chest Press</a>
@@ -46,518 +57,521 @@
                 </li>
             </ul>
         </nav>
+    </aside>
+    <main>
+        <section class="upperWorkouts">
+            <section id="InclineDumbbellBenchPress">
+            <div class="workout is-active" data-page="1">
+                <h2>Incline Dumbbell Bench Press</h2>
+                <div class="container">
+                    <div class="display">
+                        <div class="images">
+                            <img src="images/inclineBench.png" alt="Incline Bench Press" height="250px">
+                        </div>
+                        <h3>How to:</h3>
+                        <p>Pinch shoulder blades back and imagine squeezing biceps together while pushing the dumbbells up straight above your chest. At the bottom of the movement, make sure elbows are 45° from torso. Aim for 4 sets of 6-8 reps.</p>
+                    </div>
+                    <div class="sets">
+                        <div class="set-reps is-active form1">
+                            <div class="set-number"><h3>Set 1</h3></div>
+                            <div class="reps-weights">
+                                <form method="get" data-set="1" onsubmit="saveData(event, 'InclineDumbbellBenchPress', 1); switchForm()">
+                                    <div>
+                                        <input type="number" name="reps" placeholder="Reps"
+                                        class="repsData">
+                                        <p class="error"></p>
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
+                                        <button type="submit" class="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="set-reps form2">
+                            <div class="set-number"><h3>Set 2</h3></div>
+                            <div class="reps-weights">
+                                <form method="get" data-set="2" onsubmit="saveData(event, 'InclineDumbbellBenchPress', 2); switchForm()">
+                                    <div>
+                                        <input type="number" name="reps" placeholder="Reps"
+                                        class="repsData">
+                                        <p class="error"></p>
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
+                                        <button type="submit" class="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="set-reps form3">
+                            <div class="set-number"><h3>Set 3</h3></div>
+                            <div class="reps-weights">
+                                <form method="get" data-set="3" onsubmit="saveData(event, 'InclineDumbbellBenchPress', 3); switchForm()">
+                                    <div>
+                                        <input type="number" name="reps" placeholder="Reps"
+                                        class="repsData">
+                                        <p class="error"></p>
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
+                                        <button type="submit" class="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="set-reps form4">
+                            <div class="set-number"><h3>Set 4</h3></div>
+                            <div class="reps-weights">
+                                <form method="get" data-set="4" onsubmit="saveData(event, 'InclineDumbbellBenchPress', 4); switchForm()">
+                                    <div>
+                                        <input type="number" name="reps" placeholder="Reps"
+                                        class="repsData">
+                                        <p class="error"></p>
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
+                                        <button type="submit" class="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="statsDiv">
+                            <h3>Your Sets:</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <section id="BarbellRow">
+            <div class="workout" data-page="2">
+                <h2>Barbell Row</h2>
+                <div class="container">
+                    <div class="display">
+                        <div class="images">
+                            <img src="images/barbellRow.png" alt="barbell row" height="250px">
+                        </div>
+                        <h3>How to:</h3>
+                        <p>Start by pushing hips back and bending at the waist while maintaining a tight core. Pinch shoulder blades back and imagine squeezing elbows up to the ceiling. Aim for 3 sets of 8-10 reps.</p>
+                    </div>
+                    <div class="sets">
+                        <div class="set-reps is-active form1">
+                            <div class="set-number"><h3>Set 1</h3></div>
+                            <div class="reps-weights">
+                                <form method="get" data-set="5" onsubmit="saveData(event, 'BarbellRow', 5); switchForm()">
+                                    <div>
+                                        <input type="number" name="reps" placeholder="Reps"
+                                        class="repsData">
+                                        <p class="error"></p>
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
+                                        <button type="submit" class="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="set-reps form2">
+                            <div class="set-number"><h3>Set 2</h3></div>
+                            <div class="reps-weights">
+                                <form method="get" data-set="6" onsubmit="saveData(event, 'BarbellRow', 6); switchForm()">
+                                    <div>
+                                        <input type="number" name="reps" placeholder="Reps"
+                                        class="repsData">
+                                        <p class="error"></p>
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
+                                        <button type="submit" class="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="set-reps form3">
+                            <div class="set-number"><h3>Set 3</h3></div>
+                            <div class="reps-weights">
+                                <form method="get" data-set="7" onsubmit="saveData(event, 'BarbellRow', 7); switchForm()">
+                                    <div>
+                                        <input type="number" name="reps" placeholder="Reps"
+                                        class="repsData">
+                                        <p class="error"></p>
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
+                                        <button type="submit" class="submit">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="statsDiv">
+                            <h3>Your Sets:</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+            <section id="OverheadPress">
+                <div class="workout" data-page="3">
+                    <h2>Overhead Press</h2>
+                    <div class="container">
+                        <div class="display">
+                            <div class="images">
+                                <img src="images/OHP.png" alt="OHP" height="250px">
+                            </div>
+                            <h3>How to:</h3>
+                            <p>Start with feet hip-width apart and tight core. The forearms shout be parallel as you grip the bar. Push the bar up and overhead while making sure to not bend the back. Aim for 6-8 reps.</p>
+                        </div>
+                        <div class="sets">
+                            <div class="set-reps is-active form1">
+                                <div class="set-number"><h3>Set 1</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="8" onsubmit="saveData(event, 'OverheadPress', 8); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps"
+                                            class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form2">
+                                <div class="set-number"><h3>Set 2</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="9" onsubmit="saveData(event, 'OverheadPress', 9); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps"
+                                            class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form3">
+                                <div class="set-number"><h3>Set 3</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="10" onsubmit="saveData(event, 'OverheadPress', 10); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="statsDiv">
+                                <h3>Your Sets:</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="LatPulldown">
+                <div class="workout" data-page="4">
+                    <h2>Lat Pulldown</h2>
+                    <div class="container">
+                        <div class="display">
+                            <div class="images">
+                                <img src="images/latPulldown.png" alt="Lat pulldown" height="250px">
+                            </div>
+                            <h3>How to:</h3>
+                            <p>Lean back slightly as you pull the bar towards your chest, while imagining that you are pulling your elbows to the ground. Squeeze the shoulder blades together and maintain a tight core. Pause for one second and repeat. Aim for 8-10 reps</p>
+                        </div>
+                        <div class="sets">
+                            <div class="set-reps is-active form1">
+                                <div class="set-number"><h3>Set 1</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="11" onsubmit="saveData(event, 'LatPulldown', 11); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form2">
+                                <div class="set-number"><h3>Set 2</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="12" onsubmit="saveData(event, 'LatPulldown', 12); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form3">
+                                <div class="set-number"><h3>Set 3</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="13" onsubmit="saveData(event, 'LatPulldown', 13); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="statsDiv">
+                                <h3>Your Sets:</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="CableFly">
+                <div class="workout" data-page="5">
+                    <h2>Cable Fly</h2>
+                    <div class="container">
+                        <div class="display">
+                            <div class="images">
+                                <img src="images/cableFly.png" alt="Cable fly" height="250px">
+                            </div>
+                            <h3>How to:</h3>
+                            <p>Step one foot out and pull the cables in front of your chest with only a slight bend in the arms. Imagine squeezing the biceps together as you cross one hand over the other. Aim for 8-10 reps</p>
+                        </div>
+                        <div class="sets">
+                            <div class="set-reps is-active form1">
+                                <div class="set-number"><h3>Set 1</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="14" onsubmit="saveData(event, 'CableFly', 14); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form2">
+                                <div class="set-number"><h3>Set 2</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="15" onsubmit="saveData(event, 'CableFly', 15); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form3">
+                                <div class="set-number"><h3>Set 3</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="16" onsubmit="saveData(event, 'CableFly', 16); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="statsDiv">
+                                <h3>Your Sets:</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="LateralDumbbellRaise">
+                <div class="workout" data-page="6">
+                    <h2>Lateral Dumbbell Raise</h2>
+                    <div class="container">
+                        <div class="display">
+                            <div class="images">
+                                <img src="images/lateralRaise.png" alt="lateral raise" height="250px">
+                            </div>
+                            <h3>How to:</h3>
+                            <p>With a very slight forward bend at the hips, raise the dumbbells up from your side until it is parallel with the ground. Keep a very slight bend in the elbows. Aim for 8-10 reps</p>
+                        </div>
+                        <div class="sets">
+                            <div class="set-reps is-active form1">
+                                <div class="set-number"><h3>Set 1</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="17" onsubmit="saveData(event, 'LateralDumbbellRaise', 17); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form2">
+                                <div class="set-number"><h3>Set 2</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="18" onsubmit="saveData(event,  'LateralDumbbellRaise', 18); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form3">
+                                <div class="set-number"><h3>Set 3</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="19" onsubmit="saveData(event, 'LateralDumbbellRaise', 19); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="statsDiv">
+                                <h3>Your Sets:</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="SeatedInclineBicepCurl">
+                <div class="workout" data-page="7">
+                    <h2>Seated Incline Bicep Curl</h2>
+                    <div class="container">
+                        <div class="display">
+                            <div class="images">
+                                <img src="images/inclineCurl.png" alt="incline bicep curl" height="250px">
+                            </div>
+                            <h3>How to:</h3>
+                            <p>Sit on an incline bench. Arms start hanging from the side. Lift the dumbbell up using only your bicep. Aim for 8-10 reps</p>
+                        </div>
+                        <div class="sets">
+                            <div class="set-reps is-active form1">
+                                <div class="set-number"><h3>Set 1</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="20" onsubmit="saveData(event, 'SeatedInclineBicepCurl', 20); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form2">
+                                <div class="set-number"><h3>Set 2</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="21" onsubmit="saveData(event, 'SeatedInclineBicepCurl', 21); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form3">
+                                <div class="set-number"><h3>Set 3</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="22" onsubmit="saveData(event, 'SeatedInclineBicepCurl', 22); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="statsDiv">
+                                <h3>Your Sets:</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="CableOverheadTricepExtension">
+                <div class="workout" data-page="8">
+                    <h2>Cable Overhead Tricep Extension</h2>
+                    <div class="container">
+                        <div class="display">
+                            <div class="images">
+                                <img src="images/overheadExtension.gif" alt="overhead cable extension" height="250px">
+                            </div>
+                            <h3>How to:</h3>
+                            <p>Pull the cable overhead and away, while keeping the elbows still. Aim for 10-15 reps</p>
+                        </div>
+                        <div class="sets">
+                            <div class="set-reps is-active form1">
+                                <div class="set-number"><h3>Set 1</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="23" onsubmit="saveData(event, 'CableOverheadTricepExtension', 23); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form2">
+                                <div class="set-number"><h3>Set 2</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="24" onsubmit="saveData(event, 'CableOverheadTricepExtension', 24); switchForm()">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="set-reps form3">
+                                <div class="set-number"><h3>Set 3</h3></div>
+                                <div class="reps-weights">
+                                    <form method="get" data-set="25" onsubmit="saveData(event, 'CableOverheadTricepExtension', 25)">
+                                        <div>
+                                            <input type="number" name="reps" placeholder="Reps" class="repsData">
+                                            <p class="error"></p>
+                                            <input type="number" name="weight" class="weightData"
+                                            placeholder="Weight (kg)">
+                                            <button type="submit" class="submit">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="statsDiv">
+                                <h3>Your Sets:</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
     </main>
-    <section class="upperWorkouts">
-        <section id="InclineDumbbellBenchPress">
-        <div class="workout is-active" data-page="1">
-            <h2>Incline Dumbbell Bench Press</h2>
-            <div class="container">
-                <div class="display">
-                    <img src="images/inclineBench.png" alt="incline dumbbell bench" height="250px">
-                    <h3>How to:</h3>
-                    <p>Pinch shoulder blades back and imagine squeezing <br>biceps together. Aim for 4 sets of 6-8 reps.</p>
-                </div>
-                <div class="sets">
-                    <div class="set-reps">
-                        <div class="set-number">Set 1</div>
-                        <div class="reps-weights">
-                            <form method="get" data-set="1" onsubmit="saveData(event, 'InclineDumbbellBenchPress', 1)">
-                                <div>
-                                    <label>Reps</label>
-                                    <input type="number" name="reps" placeholder="6-8"
-                                    class="repsData">
-                                    <p class="error"></p>
-                                    <label>Weight (kg)</label>
-                                    <input type="number" name="weight" class="weightData">
-                                    <button type="submit" class="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="set-reps">
-                        <div class="set-number">Set 2</div>
-                        <div class="reps-weights">
-                            <form method="get" data-set="2" onsubmit="saveData(event, 'InclineDumbbellBenchPress', 2)">
-                                <div>
-                                    <label>Reps</label>
-                                    <input type="number" name="reps" placeholder="6-8"
-                                    class="repsData">
-                                    <p class="error"></p>
-                                    <label>Weight (kg)</label>
-                                    <input type="number" name="weight" class="weightData">
-                                    <button type="submit" class="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="set-reps">
-                        <div class="set-number">Set 3</div>
-                        <div class="reps-weights">
-                            <form method="get" data-set="3" onsubmit="saveData(event, 'InclineDumbbellBenchPress', 3)">
-                                <div>
-                                    <label>Reps</label>
-                                    <input type="number" name="reps" placeholder="6-8"
-                                    class="repsData">
-                                    <p class="error"></p>
-                                    <label>Weight (kg)</label>
-                                    <input type="number" name="weight" class="weightData">
-                                    <button type="submit" class="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="set-reps">
-                        <div class="set-number">Set 4</div>
-                        <div class="reps-weights">
-                            <form method="get" data-set="4" onsubmit="saveData(event, 'InclineDumbbellBenchPress', 4)">
-                                <div>
-                                    <label>Reps</label>
-                                    <input type="number" name="reps" placeholder="6-8"
-                                    class="repsData">
-                                    <p class="error"></p>
-                                    <label>Weight (kg)</label>
-                                    <input type="number" name="weight" class="weightData">
-                                    <button type="submit" class="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </section>
-        <section id="BarbellRow">
-        <div class="workout" data-page="2">
-            <h2>Barbell Row</h2>
-            <div class="container">
-                <div class="display">
-                    <img src="images/barbellRow.png" alt="bent-over row" height="250px">
-                    <h3>How to:</h3>
-                    <p>Start by pushing hips back and bending at the waist while maintaining a tight core. Pinch shoulder blades back and imagine squeezing elbows up to the ceiling. Aim for 3 sets of 8-10 reps.</p>
-                </div>
-                <div class="sets">
-                    <div class="set-reps">
-                        <div class="set-number">Set 1</div>
-                        <div class="reps-weights">
-                            <form method="get" data-set="5" onsubmit="saveData(event, 'BarbellRow', 5)">
-                                <div>
-                                    <label>Reps</label>
-                                    <input type="number" name="reps" placeholder="8-10"
-                                    class="repsData">
-                                    <p class="error"></p>
-                                    <label>Weight (kg)</label>
-                                    <input type="number" name="weight" class="weightData">
-                                    <button type="submit" class="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="set-reps">
-                        <div class="set-number">Set 2</div>
-                        <div class="reps-weights">
-                            <form method="get" data-set="6" onsubmit="saveData(event, BarbellRow, 2)">
-                                <div>
-                                    <label>Reps</label>
-                                    <input type="number" name="reps" placeholder="8-10"
-                                    class="repsData">
-                                    <p class="error"></p>
-                                    <label>Weight (kg)</label>
-                                    <input type="number" name="weight" class="weightData">
-                                    <button type="submit" class="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="set-reps">
-                        <div class="set-number">Set 3</div>
-                        <div class="reps-weights">
-                            <form method="get" data-set="7" onsubmit="saveData(event, BarbellRow, 3)">
-                                <div>
-                                    <label>Reps</label>
-                                    <input type="number" name="reps" placeholder="8-10"
-                                    class="repsData">
-                                    <p class="error"></p>
-                                    <label>Weight (kg)</label>
-                                    <input type="number" name="weight" class="weightData">
-                                    <button type="submit" class="submit">Submit</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </section>
-        <section id="OverheadPress">
-            <div class="workout" data-page="3">
-                <h2>Overhead Press</h2>
-                <div class="container">
-                    <div class="display">
-                        <img src="images/OHP.png" alt="overhead press" height="250px">
-                        <h3>How to:</h3>
-                        <p>Start with feet hip-width apart and tight core. The forearms shout be parallel as you grip the bar. Push the bar up and overhead while making sure to not bend the back. Aim for 6-8 reps.</p>
-                    </div>
-                    <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="8" onsubmit="saveData(event, 'OverheadPress', 8)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-8"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="9" onsubmit="saveData(event, 'OverheadPress', 9)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-8"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="10" onsubmit="saveData(event, 'OverheadPress', 10)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-8"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="LatPulldown">
-            <div class="workout" data-page="4">
-                <h2>Lat Pulldown</h2>
-                <div class="container">
-                    <div class="display">
-                        <img src="images/latPulldown.png" alt="lat pulldown" height="250px">
-                        <h3>How to:</h3>
-                        <p>Lean back slightly as you pull the bar towards your chest, while imagining that you are pulling your elbows to the ground. Squeeze the shoulder blades together and maintain a tight core. Pause for one second and repeat. Aim for 8-10 reps</p>
-                    </div>
-                    <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="11" onsubmit="saveData(event, 'LatPulldown', 11)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="12" onsubmit="saveData(event, 'LatPulldown', 12)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="13" onsubmit="saveData(event, 'LatPulldown', 13)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="CableFly">
-            <div class="workout" data-page="5">
-                <h2>Cable Fly</h2>
-                <div class="container">
-                    <div class="display">
-                        <img src="images/cableFly.png" alt="cable fly" height="250px">
-                        <h3>How to:</h3>
-                        <p>Step one foot out and pull the cables in front of your chest with only a slight bend in the arms. Imagine squeezing the biceps together as you cross one hand over the other. Aim for 8-10 reps</p>
-                    </div>
-                    <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="14" onsubmit="saveData(event, 'CableFly', 14)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="15" onsubmit="saveData(event, 'CableFly', 15)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="16" onsubmit="saveData(event, 'CableFly', 16)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="LateralDumbbellRaise">
-            <div class="workout" data-page="6">
-                <h2>Lateral Dumbbell Raise</h2>
-                <div class="container">
-                    <div class="display">
-                        <img src="images/lateralRaise.png" alt="lateral dumbbell raise" height="250px">
-                        <h3>How to:</h3>
-                        <p>With a very slight forward bend at the hips, raise the dumbbells up from your side until it is parallel with the ground. Keep a very slight bend in the elbows. Aim for 8-10 reps</p>
-                    </div>
-                    <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="17" onsubmit="saveData(event, 'LateralDumbbellRaise', 17)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="18" onsubmit="saveData(event,  'LateralDumbbellRaise', 18)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="19" onsubmit="saveData(event, 'LateralDumbbellRaise', 19)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="SeatedInclineBicepCurl">
-            <div class="workout" data-page="7">
-                <h2>Seated Incline Bicep Curl</h2>
-                <div class="container">
-                    <div class="display">
-                        <img src="images/inclineCurl.png" alt="incline dumbbell curl" height="250px">
-                        <h3>How to:</h3>
-                        <p>Sit on an incline bench. Arms start hanging from the side. Lift the dumbbell up using only your bicep. Aim for 8-10 reps</p>
-                    </div>
-                    <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="20" onsubmit="saveData(event, 'SeatedInclineBicepCurl', 20)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="21" onsubmit="saveData(event, 'SeatedInclineBicepCurl', 21)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="22" onsubmit="saveData(event, 'SeatedInclineBicepCurl', 22)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="CableOverheadTricepExtension">
-            <div class="workout" data-page="8">
-                <h2>Cable Overhead Tricep Extension</h2>
-                <div class="container">
-                    <div class="display">
-                        <img src="images/overheadExtension.gif" alt="overhead tricep extension" height="250px">
-                        <h3>How to:</h3>
-                        <p>Pull the cable overhead and away, while keeping the elbows still. Aim for 10-15 reps</p>
-                    </div>
-                    <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="23" onsubmit="saveData(event, 'CableOverheadTricepExtension', 23)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="10-15"
-                                        class="repsData">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit" class="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="24" onsubmit="saveData(event, 'CableOverheadTricepExtension', 24)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" class="repsData" placeholder="10-15">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
-                            <div class="reps-weights">
-                                <form method="get" data-set="25" onsubmit="saveData(event, 'CableOverheadTricepExtension', 25)">
-                                    <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" class="repsData" placeholder="10-15">
-                                        <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
-                                        <button type="submit">Submit</button>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </section>
 </body>
 </html>

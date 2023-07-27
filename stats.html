@@ -4,70 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upper Body Workout</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="upper.html">Upper</a></li>
-            <li><a href="lower.html">Lower</a></li>
-            <li><a href="stats.html">Statistics</a></li>
-        </ul>
-    </nav>
-    <h1>Statistics</h1>
-    <nav class="exercises">
-        <ul class="tabs">
-            <li class="tab is-active">
-                <a data-switcher data-tab="1">Upper</a>
-            </li>
-            <li class="tab">
-                <a data-switcher data-tab="2">Lower</a>
-            </li>
-        </ul>
-    </nav>
-    <div class="exercises">
-        <div class="workout is-active" data-page="1">
-            <h2>Upper Body Workouts</h2>
+<body class="wrapper">
+    <header>
+        <nav>
+            <div class="openMenu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+                <div class="links">
+                <div class="closeMenu">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="upper.html">Upper</a></li>
+                    <li><a href="lower.html">Lower</a></li>
+                    <li><a href="stats.html">Statistics</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1>Statistics</h1>
+    </header>
+    <aside>
+        <div class="exercises">
+            <ul class="tabs">
+                <li class="tab is-active"></li>
+                <li class="tab upperLowerTabs">
+                    <a data-switcher data-tab="2">Upper</a>
+                </li>
+                <li class="tab upperLowerTabs">
+                    <a data-switcher data-tab="3">Lower</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <main>
+        <div class="exercises">
+            <div class="workout is-active" data-page="1">
+                <h2>Your Personal Workout Statistics</h2>
+                <p>Here you will find all your recorded sets, including reps and weights, so that you can see your progress in numbers.<br>Just click on the upper or lower tab above to see your workout history.</p>
+            </div>
+            <div class="workout" data-page="2">
+                <h2>Upper Body Workouts</h2>
+                <div class="statsTab">
+                    <button type="button" class="collapsible">Incline Dumbbell Bench Press</button>
+                        <div id="InclineDumbbellBenchPress"></div>
+                    <button type="button" class="collapsible">Barbell Row</button>
+                        <div id="BarbellRow"></div>
+                    <button type="button" class="collapsible">Overhead Press</button>
+                        <div id="OverheadPress"></div>
+                    <button type="button" class="collapsible">Lat Pulldown</button>
+                        <div id="LatPulldown"></div>
+                    <button type="button" class="collapsible">Cable Fly</button>
+                        <div id="CableFly"></div>
+                    <button type="button" class="collapsible">Lateral Dumbbell Raise</button>
+                        <div id="LateralDumbbellRaise"></div>
+                    <button type="button" class="collapsible">Seated Incline Bicep Curl</button>
+                        <div id="SeatedInclineBicepCurl"></div>
+                    <button type="button" class="collapsible">Cable Overhead Tricep Extension</button>
+                        <div id="CableOverheadTricepExtension"></div>
+                </div>
+            </div>
+            <div class="workout" data-page="3">
+            <h2>Lower Body Workouts</h2>
             <div class="statsTab">
-                <button type="button" class="collapsible">Incline Dumbbell Bench Press</button>
-                    <div id="InclineDumbbellBenchPress"></div>
-                <button type="button" class="collapsible">Barbell Row</button>
-                    <div id="BarbellRow"></div>
-                <button type="button" class="collapsible">Overhead Press</button>
-                    <div id="OverheadPress"></div>
-                <button type="button" class="collapsible">Lat Pulldown</button>
-                    <div id="LatPulldown"></div>
-                <button type="button" class="collapsible">Cable Fly</button>
-                    <div id="CableFly"></div>
-                <button type="button" class="collapsible">Lateral Dumbbell Raise</button>
-                    <div id="LateralDumbbellRaise"></div>
-                <button type="button" class="collapsible">Seated Incline Bicep Curl</button>
-                    <div id="SeatedInclineBicepCurl"></div>
-                <button type="button" class="collapsible">Cable Overhead Tricep Extension</button>
-                    <div id="CableOverheadTricepExtension"></div>
+                <button type="button" class="collapsible">Barbell Squat</button>
+                    <div id="BarbellSquat"></div>
+                <button type="button" class="collapsible">Romanian Deadlift</button>
+                    <div id="RomanianDeadlift"></div>
+                <button type="button" class="collapsible">Bulgarian Split-Squat</button>
+                    <div id="BulgarianSplit-Squat"></div>
+                <button type="button" class="collapsible">Lying Leg Curls</button>
+                    <div id="LyingLeg-Curl"></div>
+                <button type="button" class="collapsible">Standing Calf-Raise</button>
+                    <div id="StandingCalf-Raise"></div>
+                <button type="button" class="collapsible">Seated Calf-Raise</button>
+                    <div id="SeatedCalf-Raise"></div>
             </div>
         </div>
-
-        <div class="workout" data-page="2">
-        <h2>Lower Body Workouts</h2>
-        <div class="statsTab">
-            <button type="button" class="collapsible">Barbell Squat</button>
-                <div id="BarbellSquat"></div>
-            <button type="button" class="collapsible">Romanian Deadlift</button>
-                <div id="RomanianDeadlift"></div>
-            <button type="button" class="collapsible">Bulgarian Split-Squat</button>
-                <div id="BulgarianSplit-Squat"></div>
-            <button type="button" class="collapsible">Lying Leg Curls</button>
-                <div id="LyingLeg-Curl"></div>
-            <button type="button" class="collapsible">Standing Calf-Raise</button>
-                <div id="StandingCalf-Raise"></div>
-            <button type="button" class="collapsible">Seated Calf-Raise</button>
-                <div id="SeatedCalf-Raise"></div>
-        </div>
     </div>
-</div>
+    </main>
 
 
     <script>
@@ -90,6 +109,7 @@
             }
         });
         }
+        
     </script>
 </body>
 </html>

@@ -21,14 +21,9 @@ function displayStatistics() {
         var setsByDateAndExercise = {};
 
         for (var i = 0; i < exerciseDivs.length; i++) {
-            var exerciseDiv = document.getElementById(exerciseDivs[i].divId);
-            if (!exerciseDiv) {
-                console.error(`Element with ID ${exerciseDivs[i].divId} not found.`);
-                continue;
-            }
-
             var exerciseName = exerciseDivs[i].exerciseName;
             var spacelessExerciseName = exerciseName.split(" ").join("");
+            var exerciseDiv = document.getElementById(exerciseDivs[i].divId);
 
             for (var j = 0; j < localStorage.length; j++) {
                 var key = localStorage.key(j);
@@ -51,9 +46,9 @@ function displayStatistics() {
                 }
             }
 
-            var statisticsForExercise = [];
+            var dates = Object.keys(setsByDateAndExercise).sort((a, b) => new Date(b) - new Date(a));
 
-            Object.keys(setsByDateAndExercise).forEach(function (date) {
+            dates.forEach(function (date) {
                 var setsForExerciseAndDate = setsByDateAndExercise[date][exerciseName];
                 if (setsForExerciseAndDate) {
                     var dateOfExercise = document.createElement("div");
@@ -66,13 +61,8 @@ function displayStatistics() {
                         dateOfExercise.appendChild(exerciseStats);
                     });
 
-                    statisticsForExercise.push(dateOfExercise);
+                    exerciseDiv.appendChild(dateOfExercise);
                 }
-            });
-
-            exerciseDiv.innerHTML = '';
-            statisticsForExercise.forEach(function (stat) {
-                exerciseDiv.appendChild(stat);
             });
         }
     }
@@ -115,6 +105,7 @@ function switchPage(pageId) {
     showWorkoutForms();
 }
 
+const setNumberObj = {};
 
 function showData(exerciseName, setNumber) {
     var exerciseDiv = document.getElementById(exerciseName);
@@ -149,9 +140,31 @@ function showData(exerciseName, setNumber) {
         var key = `${formattedDate} ${exerciseName} Set: ${nextSetNumber}`;
         localStorage.setItem(key, stats);
 
+        const currentPage = document.querySelector('.workout.is-active');
+
+        const dataPageNumber = currentPage.dataset.page;
+
+        if (!setNumberObj.hasOwnProperty(dataPageNumber)) {
+            setNumberObj[dataPageNumber] = 1;
+        }
+
+        var setNumber = setNumberObj[dataPageNumber];
+
+
         var statsElement = document.createElement('div');
-        statsElement.textContent = stats;
-        form.replaceWith(statsElement);
+        statsElement.innerHTML = `<p><strong>Set ${setNumber}:</strong> ${stats}</p>`;
+
+        setNumber++;
+
+        setNumberObj[dataPageNumber] = setNumber;
+
+
+        var statsDivs = currentPage.getElementsByClassName('statsDiv');
+        for (var i = 0; i < statsDivs.length; i++) {
+            statsDivs[i].appendChild(statsElement.cloneNode(true));
+        }
+
+
     } else {
         if (errorElement) {
             errorElement.textContent = 'Error: Please enter a valid number of reps.';
@@ -180,3 +193,43 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+const formNumbers = {};
+
+function switchForm() {
+    const currentPage = document.querySelector('.workout.is-active');
+    const dataPageNumber = currentPage.dataset.page;
+
+    if (!formNumbers.hasOwnProperty(dataPageNumber)) {
+        formNumbers[dataPageNumber] = 1;
+    }
+
+    var currentFormNumber = formNumbers[dataPageNumber];
+
+    var formHide = currentPage.querySelector(`.form${currentFormNumber}`);
+    formHide.style.display = "none";
+
+    currentFormNumber++;
+    var formShow = currentPage.querySelector(`.form${currentFormNumber}`);
+    formShow.style.display = "block";
+
+    formNumbers[dataPageNumber] = currentFormNumber;
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const mainMenu = document.querySelector('.links');
+    const openMenu = document.querySelector('.openMenu');
+    const closeMenu = document.querySelector('.closeMenu');
+
+    openMenu.addEventListener('click', show);
+    closeMenu.addEventListener('click', close);
+
+    function show() {
+        mainMenu.style.display = "flex";
+        mainMenu.style.top = "0";
+    }
+
+    function close() {
+        mainMenu.style.top = "-100%";
+    }
+});
+

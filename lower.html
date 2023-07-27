@@ -5,20 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lower Body Workout</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <script src="script.js" defer></script>
 </head>
-<body>
-    <nav>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="upper.html">Upper</a></li>
-            <li><a href="lower.html">Lower</a></li>
-            <li><a href="stats.html">Statistics</a></li>
-        </ul>
-    </nav>
-    <h1>Lower Body Workout</h1>
-    <main>
-        <nav class="exercises">
+<body class="wrapper">
+    <header>
+        <nav>
+            <div class="openMenu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+                <div class="links">
+                <div class="closeMenu">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="upper.html">Upper</a></li>
+                    <li><a href="lower.html">Lower</a></li>
+                    <li><a href="stats.html">Statistics</a></li>
+                </ul>
+            </div>
+        </nav>
+        <h1>Lower Body Workout</h1>
+    </header>
+    <aside>
+        <nav class="exercises scroll">
             <ul class="tabs">
                 <li class="tab is-active">
                     <a data-switcher data-tab="1">Barbell Squat</a>
@@ -40,97 +51,98 @@
                 </li>
             </ul>
         </nav>
-    </main>
+    </aside>
+    <main>
     <section class="upperWorkouts">
         <section id="BarbellSquat">
             <div class="workout is-active" data-page="1">
                 <h2>Barbell Squat</h2>
                 <div class="container">
                     <div class="display">
-                        <img src="images/squat.png" alt="squat" height="250px">
+                        <div class="images">
+                            <img src="images/squat.png" alt="squat" height="250px">
+                        </div>
                         <h3>How to:</h3>
                         <p>Grip should be close shoulders. Shoulder blades should be squeezed back and down. All four corners of the foot should be firmly planted. Start by pushing hips back and lowering glutes until your quads are parallel with the ground. Push back up through the heels, keeping the back straight, chest up, and knees straight. Maintain firm core throughout. Aim for 6-8 reps</p>
                     </div>
                     <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
+                        <div class="set-reps is-active form1">
+                            <div class="set-number"><h3>Set 1</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="1" onsubmit="saveData(event, 'BarbellSquat', 1)">
+                                <form id="form" method="get" data-set="1" onsubmit="saveData(event, 'BarbellSquat', 1); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-8"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
+                        <div class="set-reps form2">
+                            <div class="set-number"><h3>Set 2</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="2" onsubmit="saveData(event, 'BarbellSquat', 2)">
+                                <form method="get" data-set="2" onsubmit="saveData(event, 'BarbellSquat', 2); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-8"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
+                        <div class="set-reps form3">
+                            <div class="set-number"><h3>Set 3</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="3" onsubmit="saveData(event, 'BarbellSquat', 3)">
+                                <form method="get" data-set="3" onsubmit="saveData(event, 'BarbellSquat', 3); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-8"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 4</div>
+                        <div class="set-reps form4">
+                            <div class="set-number"><h3>Set 4</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="4" onsubmit="saveData(event, 'BarbellSquat', 4)">
+                                <form method="get" data-set="4" onsubmit="saveData(event, 'BarbellSquat', 4); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-8"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 5</div>
+                        <div class="set-reps form5" data-set="5">
+                            <div class="set-number"><h3>Set 5</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="5" onsubmit="saveData(event, 'BarbellSquat', 5)">
+                                <form method="get" data-set="5" onsubmit="saveData(event, 'BarbellSquat', 5); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-8"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                        <div class="statsDiv">
+                            <h3>Your Sets:</h3>
                         </div>
                     </div>
                 </div>
@@ -141,74 +153,75 @@
                 <h2>Romanian Deadlift</h2>
                 <div class="container">
                     <div class="display">
-                        <img src="images/deadlift.png" alt="deadlift" height="250px">
+                        <div class="images">
+                            <img src="images/deadlift.png" alt="deadlift" height="250px">
+                        </div>
                         <h3>How to:</h3>
                         <p>Grip the bar slightly more than shoulder-width apart. Keep a tight core and push hips back while keeping a slight bend in the knees. Lower the bar to just under the knees. Push the hips forward by squeezing the glutes to come back up. Repeat for 8-10 reps.</p>
                     </div>
                     <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
+                        <div class="set-reps is-active form1">
+                            <div class="set-number"><h3>Set 1</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="6" onsubmit="saveData(event, 'RomanianDeadlift', 6)">
+                                <form method="get" data-set="6" onsubmit="saveData(event, 'RomanianDeadlift', 6); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
+                        <div class="set-reps form2">
+                            <div class="set-number"><h3>Set 2</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="7" onsubmit="saveData(event,  'RomanianDeadlift', 7)">
+                                <form method="get" data-set="7" onsubmit="saveData(event,  'RomanianDeadlift', 7); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
+                        <div class="set-reps form3">
+                            <div class="set-number"><h3>Set 3</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="8" onsubmit="saveData(event, 'RomanianDeadlift', 8)">
+                                <form method="get" data-set="8" onsubmit="saveData(event, 'RomanianDeadlift', 8); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 4</div>
+                        <div class="set-reps form4">
+                            <div class="set-number"><h3>Set 4</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="9" onsubmit="saveData(event, 'RomanianDeadlift', 9)">
+                                <form method="get" data-set="9" onsubmit="saveData(event, 'RomanianDeadlift', 9); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                        <div class="statsDiv">
+                            <h3>Your Sets:</h3>
                         </div>
                     </div>
                 </div>
@@ -219,74 +232,75 @@
                 <h2>Bulgarian Split-Squat</h2>
                 <div class="container">
                     <div class="display">
-                        <img src="images/splitSquat.jpg" alt="split squat" height="250px">
+                        <div class="images">
+                            <img src="images/splitSquat.jpg" alt="split squat" height="250px">
+                        </div>
                         <h3>How to:</h3>
                         <p>With one leg planted on the bench behind you, lower yourself down with control using the forward leg for balance. Push back up using the forward leg. Aim for 6-10 reps per leg</p>
                     </div>
                     <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
+                        <div class="set-reps is-active form1">
+                            <div class="set-number"><h3>Set 1</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="10" onsubmit="saveData(event, 'BulgarianSplit-Squat', 10)">
+                                <form method="get" data-set="10" onsubmit="saveData(event, 'BulgarianSplit-Squat', 10); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
+                        <div class="set-reps form2">
+                            <div class="set-number"><h3>Set 2</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="11" onsubmit="saveData(event, 'BulgarianSplit-Squat', 11)">
+                                <form method="get" data-set="11" onsubmit="saveData(event, 'BulgarianSplit-Squat', 11); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
+                        <div class="set-reps form3">
+                            <div class="set-number"><h3>Set 3</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="12" onsubmit="saveData(event, 'BulgarianSplit-Squat', 12)">
+                                <form method="get" data-set="12" onsubmit="saveData(event, 'BulgarianSplit-Squat', 12); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 4</div>
+                        <div class="set-reps form4">
+                            <div class="set-number"><h3>Set 4</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="13" onsubmit="saveData(event, 'BulgarianSplit-Squat', 13)">
+                                <form method="get" data-set="13" onsubmit="saveData(event, 'BulgarianSplit-Squat', 13); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="6-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                        <div class="statsDiv">
+                            <h3>Your Sets:</h3>
                         </div>
                     </div>
                 </div>
@@ -297,70 +311,68 @@
                 <h2>Lying Leg-Curl</h2>
                 <div class="container">
                     <div class="display">
-                        <img src="images/legCurl.png" alt="leg curl" height="250px">
+                        <div class="images">
+                            <img src="images/legCurl.png" alt="leg curl" height="250px">
+                        </div>
                         <h3>How to:</h3>
                         <p>Pull your heels towards your glutes by squeezing your hamstrings and bending at the knee. Pause at the top and slowly lower down with control. Aim for 8-10 reps</p>
                     </div>
                     <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
+                        <div class="set-reps is-active form1">
+                            <div class="set-number"><h3>Set 1</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="14" onsubmit="saveData(event, 'LyingLeg-Curl', 14)">
+                                <form method="get" data-set="14" onsubmit="saveData(event, 'LyingLeg-Curl', 14); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
+                        <div class="set-reps form2">
+                            <div class="set-number"><h3>Set 2</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="15" onsubmit="saveData(event, 'LyingLeg-Curl', 15)">
+                                <form method="get" data-set="15" onsubmit="saveData(event, 'LyingLeg-Curl', 15); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
+                        <div class="set-reps form3">
+                            <div class="set-number"><h3>Set 3</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="16" onsubmit="saveData(event, 'LyingLeg-Curl', 16)">
+                                <form method="get" data-set="16" onsubmit="saveData(event, 'LyingLeg-Curl', 16); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 4</div>
+                        <div class="set-reps form4">
+                            <div class="set-number"><h3>Set 4</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="17" onsubmit="saveData(event, 'LyingLeg-Curl', 17)">
+                                <form method="get" data-set="17" onsubmit="saveData(event, 'LyingLeg-Curl', 17); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="8-10"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
@@ -375,74 +387,75 @@
                 <h2>Standing Calf-Raise</h2>
                 <div class="container">
                     <div class="display">
-                        <img src="images/standingCalf.gif" alt="standing calf raise" height="250px">
+                        <div class="images">
+                            <img src="images/standingCalf.gif" alt="standing calf raise" height="250px">
+                        </div>
                         <h3>How to:</h3>
                         <p>Stand on an elevated platform with your toes planted and your heels off the platform. Push your heels up as far as you can and pause at the top. Slowly lower down. Repeat for 10-15 reps.</p>
                     </div>
                     <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
+                        <div class="set-reps is-active form1">
+                            <div class="set-number"><h3>Set 1</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="18" onsubmit="saveData(event, 'StandingCalf-Raise', 18)">
+                                <form method="get" data-set="18" onsubmit="saveData(event, 'StandingCalf-Raise', 18); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="10-15"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
+                        <div class="set-reps form2">
+                            <div class="set-number"><h3>Set 2</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="19" onsubmit="saveData(event, 'StandingCalf-Raise', 19)">
+                                <form method="get" data-set="19" onsubmit="saveData(event, 'StandingCalf-Raise', 19); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="10-15"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
+                        <div class="set-reps form3">
+                            <div class="set-number"><h3>Set 3</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="20" onsubmit="saveData(event, 'StandingCalf-Raise', 20)">
+                                <form method="get" data-set="20" onsubmit="saveData(event, 'StandingCalf-Raise', 20); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="10-15"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 4</div>
+                        <div class="set-reps form4">
+                            <div class="set-number"><h3>Set 4</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="21" onsubmit="saveData(event, 'StandingCalf-Raise', 21)">
+                                <form method="get" data-set="21" onsubmit="saveData(event, 'StandingCalf-Raise', 21); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="10-15"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                        <div class="statsDiv">
+                            <h3>Your Sets:</h3>
                         </div>
                     </div>
                 </div>
@@ -453,79 +466,83 @@
                 <h2>Seated Calf-Raise</h2>
                 <div class="container">
                     <div class="display">
-                        <img src="images/seatedCalf.gif" alt="seated calf-raise" height="250px">
+                        <div class="images">
+                            <img src="images/seatedCalf.gif" alt="seated calf-raise" height="250px">
+                        </div>
                         <h3>How to:</h3>
                         <p>Push the knee pad up by raising your heels while keeping the toes planted. Pause at the top and slowly lower down. Aim for 10-15 reps.</p>
                     </div>
                     <div class="sets">
-                        <div class="set-reps">
-                            <div class="set-number">Set 1</div>
+                        <div class="set-reps is-active form1">
+                            <div class="set-number"><h3>Set 1</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="22" onsubmit="saveData(event, 'SeatedCalf-Raise', 22)">
+                                <form method="get" data-set="22" onsubmit="saveData(event, 'SeatedCalf-Raise', 22); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="10-15"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 2</div>
+                        <div class="set-reps form2">
+                            <div class="set-number"><h3>Set 2</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="2" onsubmit="saveData(event, 'SeatedCalf-Raise', 23)">
+                                <form method="get" data-set="2" onsubmit="saveData(event, 'SeatedCalf-Raise', 23); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="10-15"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 3</div>
+                        <div class="set-reps form3">
+                            <div class="set-number"><h3>Set 3</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="24" onsubmit="saveData(event, 'SeatedCalf-Raise', 24)">
+                                <form method="get" data-set="24" onsubmit="saveData(event, 'SeatedCalf-Raise', 24); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="10-15"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
                         </div>
-                        <div class="set-reps">
-                            <div class="set-number">Set 4</div>
+                        <div class="set-reps form4">
+                            <div class="set-number"><h3>Set 4</h3></div>
                             <div class="reps-weights">
-                                <form method="get" data-set="25" onsubmit="saveData(event, 'SeatedCalf-Raise', 25)">
+                                <form method="get" data-set="25" onsubmit="saveData(event, 'SeatedCalf-Raise', 25); switchForm()">
                                     <div>
-                                        <label>Reps</label>
-                                        <input type="number" name="reps" placeholder="10-15"
+                                        <input type="number" name="reps" placeholder="Reps"
                                         class="repsData">
                                         <p class="error"></p>
-                                        <label>Weight (kg)</label>
-                                        <input type="number" name="weight" class="weightData">
+                                        <input type="number" name="weight" class="weightData"
+                                        placeholder="Weight (kg)">
                                         <button type="submit" class="submit">Submit</button>
                                     </div>
                                 </form>
                             </div>
+                        </div>
+                        <div class="statsDiv">
+                            <h3>Your Sets:</h3>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </section>
+    </main>
+    <footer>
+    </footer>
 </body>
 </html>
