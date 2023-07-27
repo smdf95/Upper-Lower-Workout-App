@@ -255,7 +255,7 @@ iframe {
     border: none;
 }
 
-nav .openMenu {
+nav .openMenu, nav .closeMenu {
     display: none;
 }
 
