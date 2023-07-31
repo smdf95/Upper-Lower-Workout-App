@@ -1,3 +1,5 @@
+// This function will display the exercise statistics on the stats page while ensuring the stats are placed in the correct exercise divs, under the correct dates, and in the correct order.
+
 function displayStatistics() {
     var exerciseDivs = [
         { exerciseName: 'Incline Dumbbell Bench Press', divId: 'InclineDumbbellBenchPress' },
@@ -67,6 +69,8 @@ function displayStatistics() {
         }
     }
 
+// This function allows the active page to show the correct information and forms, while the non active pages stay hidden
+
 let activePage = 1;
 
 function showWorkoutForms() {
@@ -81,7 +85,7 @@ function showWorkoutForms() {
     }
 }
 
-
+// This function switches between workout after clicking on the appropriate tab
 
 window.addEventListener('DOMContentLoaded', () => {
     const tabSwitchers = document.querySelectorAll('[data-switcher]');
@@ -100,72 +104,111 @@ window.addEventListener('DOMContentLoaded', () => {
 
 });
 
+// This function switches between exercise tabs and displays the relevant information and forms
+
 function switchPage(pageId) {
     activePage = pageId;
     showWorkoutForms();
 }
 
-const setNumberObj = {};
+// This function retrieves the number of reps for a given set
 
-function showData(exerciseName, setNumber) {
+function getRepsData(exerciseName, setNumber) {
     var exerciseDiv = document.getElementById(exerciseName);
     var form = exerciseDiv.querySelector(`form[data-set="${setNumber}"]`);
     var repsInput = form.querySelector('.repsData');
+    return repsInput.value;
+}
+
+// This function retrieves the weight lifted for a given set
+
+function getWeightData(exerciseName, setNumber) {
+    var exerciseDiv = document.getElementById(exerciseName);
+    var form = exerciseDiv.querySelector(`form[data-set="${setNumber}"]`);
     var weightInput = form.querySelector('.weightData');
-    var errorElement = form.querySelector('.error');
+    return weightInput.value;
+}
 
-    var reps = repsInput.value;
-    var weight = weightInput.value;
+// This function validates the reps input
 
-    if (reps > 0) {
-        var stats = `Reps: ${reps}. Weight: ${weight}kg.`;
+function validateInput(reps) {
+    return reps > 0;
+}
+
+// This function formats the reps and weight into a string
+
+function formatStats(reps, weight) {
+    return `Reps: ${reps}. Weight: ${weight}kg.`;
+}
+
+// This functions finds the next set number for the current exercise on the current date
+
+function getNextSetNumber(formattedDate, exerciseName) {
+    var exerciseSets = [];
+    for (var j = 0; j < localStorage.length; j++) {
+        var key = localStorage.key(j);
+        if (key.toLowerCase().includes(`${formattedDate} ${exerciseName.toLowerCase()}`)) {
+            var setNumberMatch = key.match(/Set: (\d+)/);
+            var currentSetNumber = setNumberMatch ? parseInt(setNumberMatch[1]) : null;
+            if (currentSetNumber) {
+                exerciseSets.push(currentSetNumber);
+            }
+        }
+    }
+    return exerciseSets.length > 0 ? Math.max(...exerciseSets) + 1 : 1;
+}
+
+// This function saves the statistics in local storage
+
+function saveStatsToLocalStorage(formattedDate, exerciseName, setNumber, stats) {
+    var key = `${formattedDate} ${exerciseName} Set: ${setNumber}`;
+    localStorage.setItem(key, stats);
+}
+
+// This function displays the set number, reps, and weights in the statsDiv
+
+function displayStatsOnPage(stats, dataPageNumber) {
+    const currentPage = document.querySelector('.workout.is-active');
+    if (!setNumberObj.hasOwnProperty(dataPageNumber)) {
+        setNumberObj[dataPageNumber] = 1;
+    }
+    var setNumber = setNumberObj[dataPageNumber];
+    var statsElement = document.createElement('div');
+    statsElement.innerHTML = `<p><strong>Set ${setNumber}:</strong> ${stats}</p>`;
+    setNumber++;
+    setNumberObj[dataPageNumber] = setNumber;
+    var statsDivs = currentPage.getElementsByClassName('statsDiv');
+    for (var i = 0; i < statsDivs.length; i++) {
+        statsDivs[i].appendChild(statsElement.cloneNode(true));
+    }
+}
+
+// This function handles input data for the exercise, validates it, save the stats in local storage, and displays them in the statsDiv
+
+const setNumberObj = {};
+
+function showData(exerciseName, setNumber) {
+    var reps = getRepsData(exerciseName, setNumber);
+    var weight = getWeightData(exerciseName, setNumber);
+
+    if (validateInput(reps)) {
+        var stats = formatStats(reps, weight);
 
         var currentDate = new Date();
         var formattedDate = currentDate.toISOString().slice(0, 10);
 
-        var exerciseSets = [];
-        for (var j = 0; j < localStorage.length; j++) {
-            var key = localStorage.key(j);
-            if (key.toLowerCase().includes(`${formattedDate} ${exerciseName.toLowerCase()}`)) {
-                var setNumberMatch = key.match(/Set: (\d+)/);
-                var currentSetNumber = setNumberMatch ? parseInt(setNumberMatch[1]) : null;
-                if (currentSetNumber) {
-                    exerciseSets.push(currentSetNumber);
-                }
-            }
-        }
+        var nextSetNumber = getNextSetNumber(formattedDate, exerciseName);
 
-        var nextSetNumber = exerciseSets.length > 0 ? Math.max(...exerciseSets) + 1 : 1;
-
-        var key = `${formattedDate} ${exerciseName} Set: ${nextSetNumber}`;
-        localStorage.setItem(key, stats);
+        saveStatsToLocalStorage(formattedDate, exerciseName, nextSetNumber, stats);
 
         const currentPage = document.querySelector('.workout.is-active');
-
         const dataPageNumber = currentPage.dataset.page;
 
-        if (!setNumberObj.hasOwnProperty(dataPageNumber)) {
-            setNumberObj[dataPageNumber] = 1;
-        }
-
-        var setNumber = setNumberObj[dataPageNumber];
-
-
-        var statsElement = document.createElement('div');
-        statsElement.innerHTML = `<p><strong>Set ${setNumber}:</strong> ${stats}</p>`;
-
-        setNumber++;
-
-        setNumberObj[dataPageNumber] = setNumber;
-
-
-        var statsDivs = currentPage.getElementsByClassName('statsDiv');
-        for (var i = 0; i < statsDivs.length; i++) {
-            statsDivs[i].appendChild(statsElement.cloneNode(true));
-        }
-
-
+        displayStatsOnPage(stats, dataPageNumber);
     } else {
+        var exerciseDiv = document.getElementById(exerciseName);
+        var form = exerciseDiv.querySelector(`form[data-set="${setNumber}"]`);
+        var errorElement = form.querySelector('.error');
         if (errorElement) {
             errorElement.textContent = 'Error: Please enter a valid number of reps.';
         }
@@ -173,11 +216,15 @@ function showData(exerciseName, setNumber) {
 }
 
 
+
+// This function saves the input data on submit and displays it in the statsDiv
+
 function saveData(event, exerciseName, setNumber) {
     event.preventDefault();
     showData(exerciseName, setNumber);
 }
 
+// This function creates a collapsible button for the stats page.
 
 var coll = document.getElementsByClassName("collapsible");
 var i;
@@ -193,6 +240,8 @@ for (i = 0; i < coll.length; i++) {
     }
   });
 }
+
+// This function allows the user to switch to the next form after submitting the current form.
 
 const formNumbers = {};
 
@@ -215,6 +264,9 @@ function switchForm() {
 
     formNumbers[dataPageNumber] = currentFormNumber;
 }
+
+// This function creates an interactive menu when viewing on mobile or tablet
+
 document.addEventListener('DOMContentLoaded', () => {
     const mainMenu = document.querySelector('.links');
     const openMenu = document.querySelector('.openMenu');

@@ -11,7 +11,19 @@ body {
 
 /* Nav and Tabs */
 
-ul{
+nav .openMenu, nav .closeMenu {
+    display: none;
+}
+
+.openMenu i, .closeMenu i {
+    color: #222222;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
 
     list-style-type: none;
     display: flex;
@@ -21,14 +33,14 @@ ul{
 }
 
 
-ul li{
+ul li {
     list-style: none;
     display: inline-block;
     padding: 1px 7px;
     position: relative;
 }
 
-ul li a{
+ul li a {
     text-decoration: none;
     text-transform: uppercase;
     
@@ -58,7 +70,7 @@ nav h1 {
     background-color: #FFFFFF;
     border-radius: 9px;
     cursor: pointer;
-    font-size: smaller;
+    font-size: 15px;
     font-weight: 550;
 }
 
@@ -101,6 +113,7 @@ iframe {
     width: 350px;
 }
 
+
 /* Home Classes and IDs */
 
 .choice {
@@ -118,6 +131,12 @@ iframe {
 .display {
     flex: 2; 
     padding: 10px; 
+}
+
+main {
+    
+    margin: 20px 100px;
+    padding: 20px 0
 }
 
 .sets {
@@ -179,7 +198,7 @@ input::placeholder {
 }
 
 .statsDiv div {
-    padding: 10px;
+    padding: 6px;
 }
 
 /* Statistics Classes and IDs */
@@ -251,17 +270,6 @@ div #InclineDumbbellBenchPress, div #BarbellRow, div #OverheadPress, div #LatPul
     justify-content: center;
 }
 
-iframe {
-    border: none;
-}
-
-nav .openMenu, nav .closeMenu {
-    display: none;
-}
-
-.openMenu i, .closeMenu i {
-    color: #222222;
-}
 
 @media screen and (min-width: 768px) and (max-width: 1023px) {
 
@@ -299,7 +307,7 @@ nav .openMenu, nav .closeMenu {
     }
 
     
-    /* Nav and Tabs */
+    /* Tabs */
 
 
     .tab a[data-switcher] {
@@ -336,6 +344,7 @@ nav .openMenu, nav .closeMenu {
 
     header h1 {
         text-align: start;
+        padding-left: 10px;
     }
 
     p {
@@ -345,6 +354,23 @@ nav .openMenu, nav .closeMenu {
     li {
         font-size: 20px;
     }
+
+    /* Home */
+
+    .choice {
+        display: flex;
+        justify-content: center;
+    }
+
+    .choice button {
+        padding: 0 30px;
+        width: 250px;
+        height: 150px;
+        margin: 10px;
+        font-size: 30px;
+    }
+
+    /* Upper/Lower */
     
     .container {
         display: flex;
@@ -357,6 +383,7 @@ nav .openMenu, nav .closeMenu {
         height: 50px;
         font-size: 20px;
     }
+
     .reps-weights{
         display: flex;
         justify-content: center;
@@ -383,9 +410,86 @@ nav .openMenu, nav .closeMenu {
         overflow: auto;
         white-space: nowrap;
     }
+    
+    nav.exercises {
+        justify-content: flex-start;
+    }
+
+    /* Stats */
+    
+    .collapsible {
+        width: 60%;
+        height: 80px;
+        padding: 15px;
+        font-size: 25px;
+    }
+
+    /* nav menu */
+
+    nav {
+        background: #CCCCCC;
+        color: #000000;
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    nav .links {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 10;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #CCCCCC;
+        transition: top 1000ms ease;
+        display: none;
+    }
+
+    .links li a {
+        display: inline-block;
+        padding: 15px;
+        color: #000000;
+        font-size: 35px;
+    }
+
+    ul{
+
+        display: inline-block;
+        
+    }
+    
+    
+    ul li{
+        display: flex;
+        justify-content: flex-start;
+    }    
+
+    nav .openMenu {
+        display: block;
+        color: #000000;
+        margin: 20px;
+        font-size: 40px;
+        cursor: pointer;
+    }
+    
+    nav .closeMenu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 40px;
+    }
+    
 
     nav.exercises {
         justify-content: flex-start;
+    }
+
+    a.active {
+        text-decoration: underline 2px;
     }
       
 }
@@ -419,15 +523,15 @@ nav .openMenu, nav .closeMenu {
 
     main {
         grid-area: m;
-        padding: 0 50px;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+
     }
 
-    footer {
-        grid-area: f;
-    }
 
     
-    /* Nav and Tabs */
+    /* Tabs */
 
 
     .tab a[data-switcher] {
@@ -464,6 +568,7 @@ nav .openMenu, nav .closeMenu {
 
     header h1 {
         text-align: start;
+        padding-left: 10px;
     }
 
     p {
@@ -473,54 +578,14 @@ nav .openMenu, nav .closeMenu {
     li {
         font-size: 20px;
     }
-    
-    .container {
-        display: flex;
-        justify-content: flex-start;
-        flex-flow: wrap;
+
+    iframe {
+        margin: 20px 0;
+        height: 150px;
+        width: 320px;
     }
 
-    input {
-        width: 250px;
-        height: 50px;
-        font-size: 20px;
-    }
-
-    .reps-weights button {
-        width: 250px;
-        height: 50px;
-        border-radius: 15px; 
-        font-size: 20px;
-        margin: 15px
-    }
-
-    .sets {
-        padding: 0;
-    }
-
-    .set-reps {
-        display: flex; 
-        justify-content: flex-start;
-        margin-bottom: 10px; 
-        align-items: center;
-    }
-
-    .scroll {
-        background-color: #333;
-        overflow: auto;
-        white-space: nowrap;
-    }
-
-    
-    div #InclineDumbbellBenchPress, div #BarbellRow, div #OverheadPress, div #LatPulldown, div #LateralDumbbellRaise, div #CableFly, div #SeatedInclineBicepCurl, div #CableOverheadTricepExtension, div #BarbellSquat, div #RomanianDeadlift, div #BulgarianSplit-Squat, div #LyingLeg-Curl, div #StandingCalf-Raise, div #SeatedCalf-Raise {
-        padding: 0 10px 50px 10px;
-    }
-      
-    .collapsible {
-        width: 300px;
-        height: 80px;
-        padding: 15px;
-    }
+    /* Home */
 
     .choice {
         display: flex;
@@ -540,8 +605,73 @@ nav .openMenu, nav .closeMenu {
         align-content: space-between;
     }
 
-    iframe {
-        margin: 20px;
+    .home {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Upper/Lower */
+
+    .container {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: wrap;
+        
+    }
+
+    input {
+        width: 250px;
+        height: 50px;
+        font-size: 20px;
+    }
+
+    
+    .reps-weights button {
+        width: 250px;
+        height: 50px;
+        border-radius: 15px; 
+        font-size: 20px;
+        margin: 15px
+    }
+
+    .sets {
+        padding: 0;
+        display: flex;
+    }
+    
+    .set-reps {
+        display: flex; 
+        justify-content: flex-start;
+        margin-bottom: 10px; 
+        align-items: center;
+    }
+
+    .scroll {
+        background-color: #333;
+        overflow: auto;
+        white-space: nowrap;
+    }
+    
+    .statsDiv {
+        display: block;
+        width: 250px;
+    }
+    
+    .statsDiv div {
+        padding: 2px;
+    }
+
+    /* Stats */
+    
+    div #InclineDumbbellBenchPress, div #BarbellRow, div #OverheadPress, div #LatPulldown, div #LateralDumbbellRaise, div #CableFly, div #SeatedInclineBicepCurl, div #CableOverheadTricepExtension, div #BarbellSquat, div #RomanianDeadlift, div #BulgarianSplit-Squat, div #LyingLeg-Curl, div #StandingCalf-Raise, div #SeatedCalf-Raise {
+        padding: 0 10px 50px 10px;
+    }
+      
+    .collapsible {
+        width: 300px;
+        height: 80px;
+        padding: 15px;
     }
 
     /* nav menu */
@@ -572,7 +702,7 @@ nav .openMenu, nav .closeMenu {
         display: inline-block;
         padding: 15px;
         color: #000000;
-        font-size: 15px;
+        font-size: 25px;
     }
 
     ul{
@@ -605,5 +735,9 @@ nav .openMenu, nav .closeMenu {
 
     nav.exercises {
         justify-content: flex-start;
+    }
+
+    a.active {
+        text-decoration: underline 2px;
     }
 }
